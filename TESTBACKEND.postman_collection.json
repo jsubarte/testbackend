@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "5667297b-0140-473e-a590-20b60227f7da",
+		"name": "TESTBACKEND",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12345252"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Alta de Usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Isaac\",\r\n    \"lastname\": \"Madrid\",\r\n    \"email\": \"prueba4@email.com\",\r\n    \"password\": \"Enr1que$1599\",\r\n    \"phone\": \"(507) 3150164\",\r\n    \"role\": \"T\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/usuarios",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios"
+							]
+						},
+						"description": "Crea un nuevo usuario.\n\nTambien acepta en el body de la request las propiedades company y active.\n\nCompany sera 'NULL' en caso de no enviarse y Active sera 'Y' en caso de no enviarse"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"prueba1@email.com\",\r\n    \"password\": \"n4tH@n1292\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/usuarios/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"login"
+							]
+						},
+						"description": "Se debe enviar email y password en el body de la request.\n\nEstos son los datos de los usuarios ya creados:\n\n[prueba1@email.com](mailto:prueba1@email.com) n4tH@n1292  \n[prueba2@email.com](mailto:prueba2@email.com) @dmIn231  \n[prueba3@email.com](mailto:prueba3@email.com) Jsub4rt3$87  \n[prueba4@email.com](mailto:prueba4@email.com) Enr1que$1599"
+					},
+					"response": []
+				},
+				{
+					"name": "Modificacion de Usuario",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjgsImlhdCI6MTY3Njg0NDQ5MywiZXhwIjoxNjc2ODczMjkzfQ.n957bB9wR4Ws6WdJSJWs6aRIzAC7mfmHGvM82wResFQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nombre\",\r\n    \"lastname\": \"Apellido\",\r\n    \"role\": \"T\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/usuarios/8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"8"
+							]
+						},
+						"description": "StartFragmentStartFragment\n\nSe envia el id del usuario como parte de la URL  \n/:{usertid}\n\nEndFragment\n\nY en el Body las propiedades a modificar"
+					},
+					"response": []
+				},
+				{
+					"name": "Baja de Usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjgsImlhdCI6MTY3Njg0NDQ5MywiZXhwIjoxNjc2ODczMjkzfQ.n957bB9wR4Ws6WdJSJWs6aRIzAC7mfmHGvM82wResFQ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/usuarios/8",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"8"
+							]
+						},
+						"description": "StartFragment\n\nSe envia el id del usuario como parte de la URL  \n/:{userid}\n\nNo es necesario un body en la request\n\nEndFragmen"
+					},
+					"response": []
+				}
+			],
+			"description": "Contiene todos los endpoint relacionados a los usuarios. Solo el de creacion de usuario y login no requieren estar logueados previamente"
+		},
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "Alta de Ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY3NzA3NDkyOCwiZXhwIjoxNjc3MTAzNzI4fQ.cf1onm9T_GsBicJFGHOgh05tOTmkXo1HiOvdghC-q6g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "description",
+									"value": "Ultimo ticket de prueba ticket del usuario 1",
+									"type": "text"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/lonovo-2022/Desktop/Archivos/Archivos Laptop/PWA/apple.png",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/tickets",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tickets"
+							]
+						},
+						"description": "Crea un nuevo ticket"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Tickets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY3NzEyMDMzNCwiZXhwIjoxNjc3MTQ5MTM0fQ._ksY50hjp7t4A6DpOvLtTE_3cZoHlz8NJClaNJ9MY4Q",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/tickets?filter=0",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tickets"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "0",
+									"description": "0: Todos; 1: Activos; 2: Resueltos; 3: No Resueltos; 4: Inactivos. En caso de ser un cliente se ignora este parametro."
+								}
+							]
+						},
+						"description": "Obtiene los ticket establecidos por el parametro filter"
+					},
+					"response": []
+				},
+				{
+					"name": "Atender Ticket",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjksImlhdCI6MTY3NjkxNTA2OSwiZXhwIjoxNjc2OTQzODY5fQ.wCHPWLf8PiT1puFQbMUHplTBUatQYLLn12tDGLkj6RY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/tickets/atender/7",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tickets",
+								"atender",
+								"7"
+							]
+						},
+						"description": "Se envia el id del ticket como parte de la URL\r\n/atender/:{ticketid}"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar estado ticket",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjQsImlhdCI6MTY3NjkwNzk1NiwiZXhwIjoxNjc2OTM2NzU2fQ.SVQoVzZqZBcopHrfpvxGTvi1Dje-TES82P_u81I1kGU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"solved\": \"Y\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/tickets/estado/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"tickets",
+								"estado",
+								"3"
+							]
+						},
+						"description": "Se envia el id del ticket como parte de la URL\r\n/estado/:{ticketid}"
+					},
+					"response": []
+				},
+				{
+					"name": "Comentar Ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjQsImlhdCI6MTY3NzA3NzI0NywiZXhwIjoxNjc3MTA2MDQ3fQ.42zApyWnhHrNnInEkJuZM_krUslRfLMp1-B4h_2Jt_Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "commentary",
+									"value": "voy llegando",
+									"type": "text"
+								},
+								{
+									"key": "archivo",
+									"type": "file",
+									"src": "/C:/Users/lonovo-2022/Desktop/Archivos/Archivos Laptop/PWA/aguila.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/ticketcomment/6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ticketcomment",
+								"6"
+							]
+						},
+						"description": "Se envia el id del ticket como parte de la URL\r\n/tickeetcomment/:{ticketid}"
+					},
+					"response": []
+				}
+			],
+			"description": "Contiene todos los endpoint relacionados a los ticket, TODOS los endpoint requieren estar logueado previamente y enviarse el token en el encabezado x-token de la solicitud"
+		}
+	]
+}
