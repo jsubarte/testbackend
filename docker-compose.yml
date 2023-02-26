@@ -26,6 +26,8 @@ services:
     restart: always
     ports:
       - "${PORT}:${PORT}"
+    volumes:
+      - ./images:/var/www/TestBackend/images
     environment:
       PORT: ${PORT}
       SECRETORPRIVATEKEY: ${SECRETORPRIVATEKEY}
@@ -36,6 +38,7 @@ services:
       DB_NAME: ${DB_NAME}
       DB_DIAL: ${DB_DIAL}
 volumes:
+  images:
   postgresdb:
 networks:
   testbackend-network:
