@@ -1,11 +1,13 @@
 # TESTBACKEND
 
 Aplicación de servicios tecnicos, cuenta con funcionalidad de registro y login de usuarios y administracion de tickets. Como no se la versión de base de datos a usar en pruebas decidi dockerizarla.
-La aplicacion esta desarrollada con Nodejs 16.15.1, PostgreSQL 14.7.1 y npm 8.11.0. Dejo el backup de la base de datos y el archivo de documentacion de Postman.
+La aplicacion esta desarrollada con Nodejs 16.15.1, PostgreSQL 14.7.1 y npm 8.11.0. Dejo el backup de la base de datos y el archivo de documentacion de Postman, ademas del archivo .env con los valores usados en las variables de entorno para que puedan usarla con los datos ya cargados a la base de datos.
 
 ## Documentación Postman en linea
 
 https://documenter.getpostman.com/view/12345252/2s93CLuEMi
+
+Se corrigio la documentación porque no mostraba los Responses de cada Endpoint
 
 ## Variables de entorno
 
